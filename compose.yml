@@ -1,0 +1,39 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
+    ports:
+      - 2434:2434
+    depends_on: ["db"]
+    tty: true
+    volumes:
+      - ./server:/go/src/takaaki
+    environment:
+      ENV: "dev"
+      DRYRUN: true
+      ALLOW_ORIGIN1: "http://localhost:3000"
+      ALLOW_ORIGIN2: "http://localhost:3001"
+      DBMS: "mysql"
+      DB_NAME: "takaaki"
+      DB_USER: "takaaki"
+      DB_PASS: "password"
+      DB_ADDR: "db:3306"
+      DB_NET: "tcp"
+      DB_COLLATION: "utf8mb4_unicode_ci"
+    container_name: server
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+    restart: always
+    volumes:
+      - ./db/persistent:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: takaaki
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: takaaki
+    ports:
+      - "3306:3306"
+    container_name: db
