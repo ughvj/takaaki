@@ -15,7 +15,7 @@ services:
       ALLOW_ORIGIN1: "http://localhost:3000"
       ALLOW_ORIGIN2: "http://localhost:3001"
       DBMS: "mysql"
-      DB_NAME: "takaaki"
+      DB_NAME: "aps"
       DB_USER: "takaaki"
       DB_PASS: "password"
       DB_ADDR: "db:3306"
@@ -33,7 +33,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: takaaki
       MYSQL_PASSWORD: password
-      MYSQL_DATABASE: takaaki
+      MYSQL_DATABASE: aps
     ports:
       - "3306:3306"
     container_name: db

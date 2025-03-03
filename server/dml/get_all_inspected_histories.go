@@ -1,6 +1,7 @@
 package dml
 
 import (
+	"fmt"
 	"github.com/ughvj/takaaki/drivers"
 	"github.com/ughvj/takaaki/types"
 )
@@ -19,7 +20,8 @@ func GetAllInspectedHistories(db drivers.DBConnector) *types.InspectedHistories 
 		var ih types.InspectedHistory
 		err := rows.Scan(ih.Refs()...)
 		if err != nil {
-			panic(err.Error())
+			fmt.Printf("%s¥n", err)
+			return nil
 		}
 		ihs = append(ihs, ih)
 	}

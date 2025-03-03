@@ -2,7 +2,6 @@ package processing
 
 import (
 	"net/http"
-
 	"github.com/labstack/echo"
 
 	"github.com/ughvj/takaaki/config"
@@ -53,7 +52,10 @@ func SubtractNEAERfromIHS(
 			cnt++
 		}
 		if len(*ihs) == cnt {
-			targets = append(targets, *(ss.FindByNyutaikunUserId(neae.UserId)))
+			found := ss.FindByNyutaikunUserId(neae.UserId)
+			if found != nil {
+				targets = append(targets, *found)
+			}
 		}
 	}
 

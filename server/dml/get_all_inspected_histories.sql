@@ -1,1 +1,1 @@
-select * from t_inspected_history
+select nyutaikun_user_id from t_inspected_history
