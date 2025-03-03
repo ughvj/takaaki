@@ -1,1 +1,1 @@
-select * from inspected_history
+select * from t_inspected_history

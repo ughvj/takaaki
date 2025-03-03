@@ -1,5 +1,5 @@
 table "students" {
-  schema = schema.takaaki
+  schema = schema.aps
   column "id" {
     null           = false
     type           = int
@@ -22,7 +22,7 @@ table "students" {
 }
 
 table "inspected_data" {
-  schema = schema.takaaki
+  schema = schema.aps
   column "id" {
     null           = false
     type           = int
@@ -56,7 +56,7 @@ table "inspected_data" {
 }
 
 table "t_inspected_history" {
-  schema = schema.takaaki
+  schema = schema.aps
   column "id" {
     null           = false
     type           = int
@@ -74,7 +74,7 @@ table "t_inspected_history" {
   }
 }
 
-schema "takaaki" {
+schema "aps" {
   charset = "utf8mb4"
   collate = "utf8mb4_0900_ai_ci"
 }

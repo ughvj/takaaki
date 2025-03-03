@@ -6,7 +6,7 @@ import (
 )
 
 func GetAllStudents(db drivers.DBConnector) *types.Students {
-	loadedDML, err := Loader.Get("get_all_students")
+	loadedDML, _ := Loader.Get("get_all_students")
 
 	rows, err := db.Use().Query(loadedDML)
 	if err != nil {

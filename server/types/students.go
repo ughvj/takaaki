@@ -2,9 +2,9 @@ package types
 
 type Students []Student
 type Student struct {
-	Id int
-	Name string
-	NyutaikunUserId int
+	Id              int    `json:"id"`
+	Name            string `json:"name"`
+	NyutaikunUserId int    `json:"nyutaikun_user_id"`
 }
 
 func (ss *Students) FindByNyutaikunUserId(id int) *Student {
@@ -25,30 +25,30 @@ func (s *Student) Refs() []interface{} {
 }
 
 func GetStaticStudents() *Students {
-	ret := Students {
+	ret := Students{
 		Student{
-			Id: 1,
-			Name: "伊藤　博文",
+			Id:              1,
+			Name:            "伊藤　博文",
 			NyutaikunUserId: 100,
 		},
 		Student{
-			Id: 2,
-			Name: "黒田　清隆",
+			Id:              2,
+			Name:            "黒田　清隆",
 			NyutaikunUserId: 200,
 		},
 		Student{
-			Id: 3,
-			Name: "山縣　有朋",
+			Id:              3,
+			Name:            "山縣　有朋",
 			NyutaikunUserId: 300,
 		},
 		Student{
-			Id: 4,
-			Name: "松方　正義",
+			Id:              4,
+			Name:            "松方　正義",
 			NyutaikunUserId: 400,
 		},
 		Student{
-			Id: 5,
-			Name: "大隈　重信",
+			Id:              5,
+			Name:            "大隈　重信",
 			NyutaikunUserId: 500,
 		},
 	}
